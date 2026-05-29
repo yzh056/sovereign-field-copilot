@@ -9,6 +9,7 @@
   },
   "scripts": {
     "day1:smoke": "tsx src/day1-smoke.ts",
+    "day2:voice": "tsx src/day2-voice-smoke.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
@@ -20,4 +21,3 @@
     "typescript": "^5.8.3"
   }
 }
-
