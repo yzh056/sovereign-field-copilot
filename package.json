@@ -10,6 +10,7 @@
   "scripts": {
     "day1:smoke": "tsx src/day1-smoke.ts",
     "day2:voice": "tsx src/day2-voice-smoke.ts",
+    "day3:rag": "tsx src/day3-rag-smoke.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {

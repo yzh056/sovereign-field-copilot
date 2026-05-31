@@ -20,6 +20,13 @@ It verifies the local QVAC AI core first, then adds a chunk-based voice loop.
 - Sends the transcript into the local LLM.
 - Keeps the MVP away from real-time microphone streaming.
 
+## Day 3: Local Golden SOP RAG
+
+- Loads a tiny local golden SOP dataset from `fixtures/golden-sops.json`.
+- Retrieves the most relevant SOPs without network access.
+- Sends the retrieved SOP context into the local QVAC LLM.
+- Requires source citations and human confirmation for high-risk answers.
+
 ## Run Day 1
 
 ```bash
@@ -59,11 +66,35 @@ Then run:
 npm run day2:voice
 ```
 
+## Run Day 3
+
+Use the same `.env.local` from Day 1, then run:
+
+```bash
+npm run day3:rag
+```
+
+You can also pass a custom field query:
+
+```bash
+npm run day3:rag -- "chemical splash in eyes what should I do"
+```
+
+Expected success output:
+
+```text
+Retrieved SOPs:
+...
+status=completed
+Day 3 local golden RAG smoke passed
+```
+
 ## API Rules
 
-This Day 1 build intentionally avoids deprecated QVAC surfaces:
+This clean MVP intentionally avoids deprecated QVAC surfaces:
 
 - No `modelType: "llm"`.
 - No `.tokenStream`.
 - No completion `.text` shortcut.
 - No real-time Expo microphone streaming in the MVP.
+- No cloud model API dependency.
