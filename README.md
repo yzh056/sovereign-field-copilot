@@ -27,6 +27,14 @@ It verifies the local QVAC AI core first, then adds a chunk-based voice loop.
 - Sends the retrieved SOP context into the local QVAC LLM.
 - Requires source citations and human confirmation for high-risk answers.
 
+## Day 4: Delegated Inference Warm-Up
+
+- Starts a trusted QVAC provider process on a laptop or edge workstation.
+- Lets the consumer run `heartbeat` before demo time.
+- Loads a delegated completion model through `providerPublicKey`.
+- Runs a short warm-up completion to avoid live-demo cold start.
+- Falls back to local completion if provider connection fails.
+
 ## Run Day 1
 
 ```bash
@@ -87,6 +95,44 @@ Retrieved SOPs:
 ...
 status=completed
 Day 3 local golden RAG smoke passed
+```
+
+## Run Day 4
+
+Terminal A, provider side:
+
+```bash
+npm run day4:provider
+```
+
+Copy the printed provider public key into `.env.local`:
+
+```bash
+SFC_PROVIDER_PUBLIC_KEY=your-provider-public-key
+SFC_PROVIDER_HEALTH_TIMEOUT_MS=3000
+SFC_PROVIDER_WARMUP_PROMPT=Reply with OK.
+```
+
+Terminal B, consumer warm-up side:
+
+```bash
+npm run day4:warmup
+```
+
+Expected success output:
+
+```text
+Heartbeat completed
+delegatedModelId=...
+status=Ready
+Day 4 delegated warm-up passed
+```
+
+If the provider is unavailable, the command should fall back:
+
+```text
+status=Fallback_Local
+Day 4 fallback local path passed
 ```
 
 ## API Rules

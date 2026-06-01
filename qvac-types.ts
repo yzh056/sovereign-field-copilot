@@ -14,10 +14,20 @@ export type QvacOperation<T> = Promise<T> & {
   requestId: string;
 };
 
+export interface QvacDelegateOptions {
+  providerPublicKey: string;
+  topic?: string;
+  timeout?: number;
+  healthCheckTimeout?: number;
+  fallbackToLocal?: boolean;
+  forceNewConnection?: boolean;
+}
+
 export interface QvacLoadModelOptions {
   modelSrc: string;
   modelType: string;
   modelConfig?: Record<string, unknown>;
+  delegate?: QvacDelegateOptions;
   onProgress?: (progress: unknown) => void;
 }
 
@@ -55,3 +65,5 @@ export interface QvacTranscribeOptions {
   audioChunk: string | Buffer;
   prompt?: string;
 }
+
+export type DelegationStatus = "Cold" | "Warming" | "Ready" | "Fallback_Local";
