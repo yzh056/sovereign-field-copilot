@@ -66,4 +66,11 @@ export interface QvacTranscribeOptions {
   prompt?: string;
 }
 
-export type DelegationStatus = "Cold" | "Warming" | "Ready" | "Fallback_Local";
+export type DelegationStatus = "Cold" | "Warming" | "Ready" | "Degraded" | "Fallback_Local";
+
+export interface DelegationStateSnapshot {
+  status: DelegationStatus;
+  updatedAt: string;
+  providerPublicKey?: string;
+  reason?: string;
+}
