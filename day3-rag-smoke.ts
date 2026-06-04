@@ -244,7 +244,9 @@ async function runDay3RagSmoke() {
     throw new Error("Expected Day 3 RAG answer to complete.");
   }
 
-  if (!answer.outputText.includes(matches[0].sop.id)) {
+  const topMatch = matches[0];
+
+  if (topMatch && !answer.outputText.includes(topMatch.sop.id)) {
     console.warn("Warning: answer did not visibly include the top SOP id.");
   }
 
@@ -256,4 +258,3 @@ runDay3RagSmoke().catch((error: unknown) => {
   console.error(error);
   process.exitCode = 1;
 });
-
