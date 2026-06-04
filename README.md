@@ -35,6 +35,14 @@ It verifies the local QVAC AI core first, then adds a chunk-based voice loop.
 - Runs a short warm-up completion to avoid live-demo cold start.
 - Falls back to local completion if provider connection fails.
 
+## Day 5: State Machine and Dual-Track RAG
+
+- Probes Provider health before routing the user request.
+- Caches status as `Ready` or `Fallback_Local`.
+- Routes the request from cached state without a new network probe.
+- Uses delegated inference when Provider is ready.
+- Falls back to local golden SOP RAG when Provider is missing or fails.
+
 ## Run Day 1
 
 ```bash
@@ -133,6 +141,42 @@ If the provider is unavailable, the command should fall back:
 ```text
 status=Fallback_Local
 Day 4 fallback local path passed
+```
+
+## Run Day 5
+
+Keep the Provider terminal running if you want the `Ready` path:
+
+```bash
+npm run day4:provider
+```
+
+Then in a second terminal:
+
+```bash
+npm run day5:state
+```
+
+Custom query:
+
+```bash
+npm run day5:state -- "electrical injury person down what should I do"
+```
+
+Expected outputs:
+
+```text
+cachedStatus=Ready
+selectedTrack=provider
+Day 5 state machine and dual-track RAG smoke passed
+```
+
+or, when Provider is unavailable:
+
+```text
+cachedStatus=Fallback_Local
+selectedTrack=local
+Day 5 state machine and dual-track RAG smoke passed
 ```
 
 ## API Rules
