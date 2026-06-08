@@ -6,3 +6,4 @@ dist/
 *.log
 models/
 .qvac-cache/
+.sfc/

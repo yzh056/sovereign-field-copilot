@@ -1,0 +1,83 @@
+[
+  {
+    "id": "golden-bleeding-001",
+    "title": "Severe bleeding immediate actions",
+    "severity": "critical",
+    "tags": ["first-aid", "bleeding", "trauma"],
+    "source": "Local Golden SOP seed",
+    "body": "Apply firm direct pressure with clean material. If bleeding continues, add more dressing without removing the first layer. Call emergency medical support. If trained and legally permitted, consider a tourniquet for life-threatening limb bleeding that cannot be controlled by direct pressure."
+  },
+  {
+    "id": "golden-airway-001",
+    "title": "Airway concern immediate actions",
+    "severity": "critical",
+    "tags": ["first-aid", "airway", "breathing"],
+    "source": "Local Golden SOP seed",
+    "body": "Check responsiveness and breathing. Open the airway only if trained and safe. If breathing is present and no spinal injury is suspected, place the person in the recovery position. Call urgent medical support."
+  },
+  {
+    "id": "golden-cpr-001",
+    "title": "No breathing or no pulse escalation",
+    "severity": "critical",
+    "tags": ["first-aid", "cpr", "cardiac"],
+    "source": "Local Golden SOP seed",
+    "body": "If the person is unresponsive and not breathing normally, call emergency services, send someone for an AED, and begin CPR if trained. Follow local emergency dispatcher instructions."
+  },
+  {
+    "id": "golden-burn-001",
+    "title": "Thermal burn first response",
+    "severity": "high",
+    "tags": ["first-aid", "burn", "thermal"],
+    "source": "Local Golden SOP seed",
+    "body": "Move the person away from the heat source if safe. Cool the burn under clean running water for at least 20 minutes when available. Do not apply oils or break blisters. Seek urgent care for deep, large, facial, hand, genital, or airway-related burns."
+  },
+  {
+    "id": "golden-electric-001",
+    "title": "Electrical injury isolation",
+    "severity": "critical",
+    "tags": ["industrial", "electric", "isolation"],
+    "source": "Local Golden SOP seed",
+    "body": "Do not touch the person until the electrical source is isolated. Shut off power if safe. Call emergency support. After isolation, assess responsiveness and breathing and start first aid within training limits."
+  },
+  {
+    "id": "golden-fire-001",
+    "title": "Small fire isolation",
+    "severity": "high",
+    "tags": ["fire", "industrial", "evacuation"],
+    "source": "Local Golden SOP seed",
+    "body": "Raise the alarm, isolate energy sources if safe, evacuate nonessential personnel, and use the correct extinguisher only if trained and escape route remains clear."
+  },
+  {
+    "id": "golden-chemical-001",
+    "title": "Chemical exposure first response",
+    "severity": "critical",
+    "tags": ["chemical", "decontamination", "industrial"],
+    "source": "Local Golden SOP seed",
+    "body": "Avoid secondary exposure. Move upwind or away from the release if safe. Remove contaminated clothing if possible and flush exposed skin or eyes with clean water. Call emergency response and identify the substance if safe."
+  },
+  {
+    "id": "golden-fracture-001",
+    "title": "Suspected fracture stabilization",
+    "severity": "medium",
+    "tags": ["first-aid", "fracture", "immobilization"],
+    "source": "Local Golden SOP seed",
+    "body": "Keep the injured area still. Do not force realignment. Control bleeding first if present. Immobilize above and below the injury if trained. Seek medical evaluation."
+  },
+  {
+    "id": "golden-heat-001",
+    "title": "Heat illness escalation",
+    "severity": "high",
+    "tags": ["first-aid", "heat", "environment"],
+    "source": "Local Golden SOP seed",
+    "body": "Move the person to shade or a cool area. Remove excess clothing, cool with water or fans, and give fluids only if awake and able to swallow. Confusion, collapse, seizure, or very high temperature requires emergency care."
+  },
+  {
+    "id": "golden-report-001",
+    "title": "Field handoff report minimum",
+    "severity": "medium",
+    "tags": ["report", "handoff", "incident"],
+    "source": "Local Golden SOP seed",
+    "body": "Record time, location, hazard status, number of people affected, observed injuries, actions taken, responder name, and unresolved risks. Mark AI-generated notes for human review."
+  }
+]
+

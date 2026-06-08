@@ -2,7 +2,7 @@
 
 This is the clean MVP proof for Sovereign Field Copilot.
 
-It verifies the local QVAC AI core first, then adds a chunk-based voice loop.
+It verifies the local QVAC AI core first, then adds a chunk-based voice loop, offline RAG, delegated inference warm-up, cached routing, and local field report persistence.
 
 ## Day 1: Local LLM Smoke
 
@@ -42,6 +42,22 @@ It verifies the local QVAC AI core first, then adds a chunk-based voice loop.
 - Routes the request from cached state without a new network probe.
 - Uses delegated inference when Provider is ready.
 - Falls back to local golden SOP RAG when Provider is missing or fails.
+
+## Day 6: Local Field Report Persistence
+
+- Generates an AI draft, then stores a deterministic SOP-grounded handoff report.
+- Marks the report as AI-generated and requiring human review.
+- Does not persist invented vitals, patient counts, locations, or completed actions.
+- Stores it locally with SQLite WAL when available.
+- Falls back to JSON atomic writes when `node:sqlite` is not available.
+- Keeps generated reports out of Git through `.sfc/`.
+
+## Day 7: Submission Readiness Check
+
+- Verifies the expected source files and docs exist.
+- Checks the npm scripts needed for the demo.
+- Scans source code for deprecated QVAC API patterns.
+- Confirms the project is ready to share without local secrets or models.
 
 ## Run Day 1
 
@@ -178,6 +194,48 @@ cachedStatus=Fallback_Local
 selectedTrack=local
 Day 5 state machine and dual-track RAG smoke passed
 ```
+
+## Run Day 6
+
+Use the same `.env.local` from Day 1, then run:
+
+```bash
+npm run day6:report
+```
+
+Custom report request:
+
+```bash
+npm run day6:report -- "handoff report for chemical splash in eyes"
+```
+
+Expected success output:
+
+```text
+answerStatus=completed
+reportStoreMode=sqlite-wal
+Day 6 report persistence smoke passed
+```
+
+If the runtime does not expose `node:sqlite`, `reportStoreMode=json-atomic` is also valid.
+
+## Run Day 7
+
+```bash
+npm run day7:check
+```
+
+Expected success output:
+
+```text
+Day 7 submission self-check passed
+```
+
+## Demo Docs
+
+- `docs/architecture.md`
+- `docs/demo-script.md`
+- `docs/submission-checklist.md`
 
 ## API Rules
 

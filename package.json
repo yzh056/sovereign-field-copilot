@@ -13,6 +13,9 @@
     "day3:rag": "tsx src/day3-rag-smoke.ts",
     "day4:provider": "tsx src/day4-provider.ts",
     "day4:warmup": "tsx src/day4-warmup.ts",
+    "day5:state": "tsx src/day5-state-smoke.ts",
+    "day6:report": "tsx src/day6-report-smoke.ts",
+    "day7:check": "tsx src/day7-demo-check.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {

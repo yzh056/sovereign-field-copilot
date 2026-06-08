@@ -212,7 +212,7 @@ async function runDay3RagSmoke() {
     {
       role: "system",
       content:
-        "You are Sovereign Field Copilot. Answer only from the provided local SOP context. Be concise, action-oriented, and safety-first. Include a Sources line with SOP ids. For critical or high severity cases, explicitly require human confirmation or emergency escalation."
+        "You are Sovereign Field Copilot. Answer only from the provided local SOP context. Be concise, action-oriented, and safety-first. Prioritize the first retrieved SOP as the primary hazard unless the user explicitly states another immediate hazard. Treat lower-ranked SOPs as secondary context only. Include a Sources line with SOP ids. For critical or high severity cases, explicitly require human confirmation or emergency escalation."
     },
     {
       role: "user",
